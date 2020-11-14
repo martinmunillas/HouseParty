@@ -2,16 +2,16 @@ import React from 'react';
 import { useState } from 'react';
 
 const NeonLetter = ({ children }) => {
-  const [, setState] = useState(1);
-
-  const handleHover = () => {
-    setState(Math.random);
+  const handleHover = (e) => {
+    e.target.style.animation = 'none'
+    e.target.offsetHeight;
+    e.target.style.animation = `text-flicker-in-glow ${Math.random() * 1}s linear both`
   };
 
   return (
     <span
       style={{
-        animation: `text-flicker-in-glow ${Math.random() * 10}s linear both infinite `,
+        animation: `text-flicker-in-glow ${Math.random() * 10}s linear both`,
         color: `hsla(${Math.random() * 360}, 100%, 80%, 1)`,
       }}
       onMouseOver={handleHover}
