@@ -107,6 +107,11 @@ media/
 *.db
 *.pid
 
+
+node_modules/
+build.js
+
+
 # Ignore Django Migrations in Development if you are working on team
 
 # Only for Development only
