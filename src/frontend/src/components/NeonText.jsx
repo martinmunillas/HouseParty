@@ -4,17 +4,17 @@ import { useState } from 'react';
 const NeonLetter = ({ children }) => {
   const [, setState] = useState(1);
 
-  const handleClick = () => {
+  const handleHover = () => {
     setState(Math.random);
   };
 
   return (
     <span
       style={{
-        animation: `text-flicker-in-glow ${Math.random() * 4}s linear both `,
+        animation: `text-flicker-in-glow ${Math.random() * 10}s linear both infinite `,
         color: `hsla(${Math.random() * 360}, 100%, 80%, 1)`,
       }}
-      onClick={handleClick}
+      onMouseOver={handleHover}
     >
       {children}
     </span>
