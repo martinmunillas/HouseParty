@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import CreateRoomPage from './CreateRoomPage';
 
-import HomePage from './HomePage';
-import JoinRoomPage from './JoinRoomPage';
+import HomePage from './pages/HomePage';
+import JoinRoomPage from './pages/JoinRoomPage';
+import CreateRoomPage from './pages/CreateRoomPage';
 
 const App = () => {
   return (
