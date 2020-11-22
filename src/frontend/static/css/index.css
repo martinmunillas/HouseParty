@@ -17,6 +17,14 @@ h1 {
 a {
   color: #ffffff;
 }
+
+button,
+input,
+textarea {
+  outline: none;
+  border: none;
+}
+
 .main {
   position: fixed;
   width: 100%;
@@ -34,16 +42,51 @@ a {
 }
 
 .home__buttons {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .lineButton {
-    margin: 10px;
-    padding: 20px;
-    border: 2px solid #ffffff;
-    border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+}
 
+.createRoomForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.createRoomForm__guestCanPause {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  background-color: red;
+}
+
+.createRoomForm__guestCanPause:checked {
+  background-color: greenyellow;
+}
+
+.createRoomForm__votesToSkip {
+  margin: 10px 0;
+  width: 60px;
+  height: 30px;
+  border-radius: 7px;
+}
+
+.createRoomForm__create {
+  margin: 10px 0;
+  width: 170px;
+  height: 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 @-webkit-keyframes text-flicker-in-glow {
