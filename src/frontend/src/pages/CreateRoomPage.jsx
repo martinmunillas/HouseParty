@@ -5,7 +5,7 @@ import axios from 'axios';
 import NeonText from '../components/NeonText';
 import CreateRoomForm from '../components/CreateRoomForm';
 
-const CreateRoomPage = () => {
+const CreateRoomPage = (props) => {
   const [form, setForm] = useState({ guest_can_pause: false, votes_to_skip: 1 });
 
   const handleChange = (e) => {
@@ -23,7 +23,7 @@ const CreateRoomPage = () => {
       url: '/api/create-room',
       data: form,
     });
-    console.log(res.data);
+    props.history.push(`/room/${res.data.code}`);
   };
   return (
     <>

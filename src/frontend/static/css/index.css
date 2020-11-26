@@ -7,6 +7,11 @@ body {
   background-color: black;
   font-family: 'Montserrat', sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 h1 {
   font-weight: 400;
   font-size: 128px;
@@ -22,7 +27,11 @@ button,
 input,
 textarea {
   outline: none;
-  border: none;
+}
+
+.danger {
+  background-color: red;
+  color: white;
 }
 
 .main {
@@ -44,13 +53,34 @@ textarea {
 .home__buttons {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.joinForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.joinForm input {
+  border-radius: 50px;
+  border: none;
+  width: 100%;
+  height: 0px;
+  padding: 20px 20px;
 }
 
 .lineButton {
   margin: 10px;
   padding: 20px;
-  border: 2px solid #ffffff;
   border-radius: 10px;
+  color: black;
+  font-weight: 600;
 }
 
 .createRoomForm {

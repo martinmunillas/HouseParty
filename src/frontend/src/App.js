@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
-import JoinRoomPage from './pages/JoinRoomPage';
+import RoomPage from './pages/RoomPage';
 import CreateRoomPage from './pages/CreateRoomPage';
 
 const App = () => {
@@ -10,8 +10,8 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route path='/join-room' component={JoinRoomPage} />
-        <Route path='/create-room' component={CreateRoomPage} />
+        <Route path='/room/:roomCode' component={RoomPage} />
+        <Route path='/create' component={CreateRoomPage} />
       </Switch>
     </BrowserRouter>
   );
