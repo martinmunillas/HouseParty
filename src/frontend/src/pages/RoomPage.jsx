@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import NeonText from '../components/NeonText';
+import Header from '../components/Header';
 
 const JoinRoomPage = (props) => {
   const [room, setRoom] = useState({});
@@ -8,7 +8,6 @@ const JoinRoomPage = (props) => {
   useEffect(async () => {
     setRoom(await getRoomDetails());
   }, []);
-  console.log(room);
 
   const getRoomDetails = async () => {
     const request = await axios({
@@ -23,11 +22,22 @@ const JoinRoomPage = (props) => {
     };
   };
 
+  const handleExitRoom = (e) => {
+    e.preventDefault();
+    axios({ method: 'post', url: '/api/leave-room' }).then(props.history.push('/'));
+  };
+
   return (
     <>
-      <NeonText>{room.code || ''}</NeonText>
-      <p>Votes to skip: {room.votesToSkip}</p>
-      <p>Guest can pause?: {JSON.stringify(room.guestCanPause)}</p>
+      <Header title='Spotify Party' />
+      <div className='home__buttons'>
+        <p>Votes to skip: {room.votesToSkip}</p>
+        <p>Guest can pause?: {JSON.stringify(room.guestCanPause)}</p>
+        <h2>Code: {room.code}</h2>
+        <button className='mainButton' onClick={handleExitRoom}>
+          Exit Room
+        </button>
+      </div>
     </>
   );
 };

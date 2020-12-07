@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import NeonText from '../components/NeonText';
+import Header from '../components/Header';
 
 const HomePage = (props) => {
   const [code, setCode] = useState('');
@@ -13,28 +15,41 @@ const HomePage = (props) => {
   const handleCodeSubmit = (e) => {
     e.preventDefault();
     if (codeIsValid) {
-      props.history.push(`/room/${code}`);
+      axios({ method: 'post', url: `/api/join-room`, data: { code } })
+        .then(() => {
+          props.history.push(`/room/${code}`);
+        })
+        .catch(() => setError('Invalid Code'));
     } else {
       setError('Invalid Code');
     }
   };
+
+  useEffect(() => {
+    axios({
+      url: '/api/user-in-room',
+    }).then((data) => {
+      if (data.data.code) {
+        setCode(data.data.code);
+        props.history.push(`/room/${data.data.code}`);
+      }
+    });
+  }, []);
+
   return (
     <>
-      <NeonText>Online Party</NeonText>
+      <Header title='Spotify Party' />
       <div className='home__buttons'>
-        <p className='danger'>{error}</p>
+        {error && <p className='danger'>{error}</p>}
         <form onSubmit={handleCodeSubmit} className='joinForm'>
           <input type='text' onChange={handleCodeChange} value={code} />
-          <Link
-            to={codeIsValid ? `/room/${code}` : '/'}
-            className='lineButton'
-            style={{ backgroundColor: `hsla(${Math.random() * 360}, 100%, 80%, 1)` }}
-            onClick={codeIsValid ? () => {} : () => setError('Invalid Code')}
-          >
+          <button className='mainButton' type='submit'>
             Join Room!
-          </Link>
+          </button>
         </form>
-        <Link to='/create'>Create Room!</Link>
+        <Link to='/create' className='tertiaryButton'>
+          Create Room!
+        </Link>
       </div>
     </>
   );

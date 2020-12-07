@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import NeonText from '../components/NeonText';
 import CreateRoomForm from '../components/CreateRoomForm';
+import Header from '../components/Header';
 
 const CreateRoomPage = (props) => {
   const [form, setForm] = useState({ guest_can_pause: false, votes_to_skip: 1 });
@@ -27,14 +26,13 @@ const CreateRoomPage = (props) => {
   };
   return (
     <>
-      <NeonText>Create Room</NeonText>
+      <Header title='Create Room' />
       <CreateRoomForm
         onCheckboxChange={handleCheckboxChange}
         onChange={handleChange}
         onSubmit={handleSubmit}
         formValues={form}
       />
-      <Link to='/'>Go Back</Link>
     </>
   );
 };

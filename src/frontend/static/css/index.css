@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: #2e2e2e;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -14,24 +13,34 @@ body {
 
 h1 {
   font-weight: 400;
-  font-size: 128px;
+  font-size: 40px;
   text-align: center;
-  font-family: 'Monoton', cursive;
 }
 
 a {
   color: #ffffff;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
 }
 
 button,
 input,
 textarea {
   outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 50px;
 }
 
 .danger {
   background-color: red;
   color: white;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .main {
@@ -50,13 +59,28 @@ textarea {
   flex-direction: column;
 }
 
+.homeHeader {
+  max-width: 100%;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeHeader img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
 .home__buttons {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   width: 30%;
   margin: 0 auto;
-  align-items: center;
+  height: 100%;
 }
 
 .joinForm {
@@ -75,11 +99,29 @@ textarea {
   padding: 20px 20px;
 }
 
-.lineButton {
-  margin: 10px;
+.mainButton {
+  margin-top: 20px;
   padding: 20px;
-  border-radius: 10px;
+  color: white;
+  background-color: #52bc5a;
+  font-weight: 600;
+  font-size: 18px;
+  min-width: 200px;
+}
+
+.secondaryButton {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
   color: black;
+  font-weight: 600;
+}
+
+.tertiaryButton {
+  margin-top: 10px;
+  padding: 10px;
+  color: white;
+  text-decoration: underline;
   font-weight: 600;
 }
 
@@ -88,7 +130,7 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  height: 100%;
 }
 
 .createRoomForm__guestCanPause {
@@ -104,19 +146,8 @@ textarea {
 }
 
 .createRoomForm__votesToSkip {
-  margin: 10px 0;
-  width: 60px;
-  height: 30px;
-  border-radius: 7px;
-}
-
-.createRoomForm__create {
-  margin: 10px 0;
-  width: 170px;
-  height: 40px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 20px;
+  margin-top: 10px;
+  width: 70px;
 }
 
 @-webkit-keyframes text-flicker-in-glow {

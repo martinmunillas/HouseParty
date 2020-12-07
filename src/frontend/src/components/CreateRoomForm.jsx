@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const CreateRoomForm = ({ onChange, onSubmit, onCheckboxChange, formValues }) => {
@@ -22,13 +23,12 @@ const CreateRoomForm = ({ onChange, onSubmit, onCheckboxChange, formValues }) =>
         onChange={onChange}
         value={formValues.votes_to_skip}
       ></input>
-      <button
-        type='submit'
-        className='createRoomForm__create'
-        style={{ backgroundColor: `hsla(${Math.random() * 360}, 100%, 80%, 1)` }}
-      >
+      <button type='submit' className='mainButton'>
         Create Room
       </button>
+      <Link to='/' className='tertiaryButton'>
+        ⬅ Go Back
+      </Link>
     </form>
   );
 };
